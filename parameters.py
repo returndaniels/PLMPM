@@ -6,31 +6,31 @@ num_wells = 10
 num_capacities = 2
 # custo de perfuração de um poço de petróleo j ∈ J a partir de uma plataforma na localização i ∈ I
 c = [
-    [5, 8, 6, 9, 7, 6, 4, 5, 3, 7],
-    [7, 6, 5, 8, 6, 4, 9, 7, 6, 5],
-    [4, 5, 3, 7, 6, 8, 6, 9, 7, 6],
+    [500000, 800000, 600000, 900000, 700000, 600000, 400000, 500000, 300000, 700000],
+    [700000, 600000, 500000, 800000, 600000, 400000, 900000, 700000, 600000, 500000],
+    [400000, 500000, 300000, 700000, 600000, 800000, 600000, 900000, 700000, 600000],
 ]
 #  custo para construção e instalação de uma plataforma de petróleo na localização i ∈ I com nível de capacidade k ∈ K
 f = [
-    [6, 5],
-    [7, 4],
-    [3, 8],
+    [6000000, 5000000],
+    [7000000, 4000000],
+    [3000000, 8000000],
 ]
 # estimativa de produção mensal de um poço de petróleo j ∈ J;
 a = [
-    3000,
-    4500,
-    6000,
-    3600,
-    2400,
-    5100,
-    2700,
-    3300,
-    3900,
-    5400,
+    30000,
+    45000,
+    60000,
+    36000,
+    24000,
+    51000,
+    27000,
+    33000,
+    39000,
+    54000,
 ]
 # capacidade de uma plataforma de nível k ∈ K;
-b = [16000, 15000]
+b = [160000, 150000]
 # custos com danos ambientais esperados, referentes à abertura/exploração do poço de petróleo j ∈ J
 DW = [
     310782,
