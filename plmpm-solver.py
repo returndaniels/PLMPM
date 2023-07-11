@@ -1,3 +1,5 @@
+import sys
+
 from pymoo.algorithms.moo.nsga2 import NSGA2
 from pymoo.operators.crossover.sbx import SBX
 from pymoo.operators.mutation.pm import PM
@@ -50,13 +52,14 @@ def solve_plmpm():
         problem, algorithm, termination, seed=1, save_history=True, verbose=False
     )
 
-    X = res.X
-    F = res.F
-
-    print(X)
-    plot3d(F)
-    # plot2d(F)
+    return res.F
 
 
 if __name__ == "__main__":
-    solve_plmpm()
+    # Resolve PLMPM
+    F = solve_plmpm()
+
+    if len(sys.argv) > 1 and sys.argv[1] == "--plot3d":
+        plot3d(F)
+    else:
+        plot2d(F)
