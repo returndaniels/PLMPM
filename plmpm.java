@@ -5,7 +5,7 @@ import org.moeaframework.core.problem.*;
 import org.moeaframework.core.solution.*;
 import org.moeaframework.core.variable.*;
 
-public class PLMPM extends AbstractProblem {
+public class PLMPM {
 
     private double[][] c;
     private double[][] f;
