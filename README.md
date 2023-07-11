@@ -6,7 +6,13 @@ Este projeto aborda o Problema de Localização Multiobjetivo de Plataformas de 
 
 Diferente dos problemas de otimização monoobjetivo, as abordagens multiobjetivo não possuem uma única solução ótima que atenda a todos os objetivos simultaneamente. Isso ocorre devido ao trade-off (conflito de interesses) existente entre os objetivos, o que é comum nesses problemas. Objetivos conflitantes implicam que melhorar um objetivo pode levar a uma piora em outro.
 
-Para resolver problemas de programação matemática com mais de um objetivo, é necessário definir um conjunto de soluções que represente o trade-off entre os objetivos. Esse conjunto de soluções é chamado de Soluções Eficientes de Pareto, ou Pareto Ótimo. São soluções que não podem ser melhoradas em um objetivo sem piorar em outro.
+O PLMPM é classificado como NP-Difícil, o que significa que encontrar a solução ótima é computacionalmente inviável. Para resolver problemas de programação matemática com mais de um objetivo, é necessário definir um conjunto de soluções que represente o trade-off entre os objetivos. Esse conjunto de soluções é chamado de Soluções Eficientes de Pareto, ou Pareto Ótimo. São soluções que não podem ser melhoradas em um objetivo sem piorar em outro. Buscaremos as Soluções Eficientes de Pareto através do algoritmo NSGA-II.
+
+### Algoritmo NSGA-II
+
+O NSGA-II (Non-dominated Sorting Genetic Algorithm II) é um algoritmo genético evolutivo multiobjetivo amplamente utilizado para resolver problemas de otimização multiobjetivo. Foi proposto por Deb et al. em 2002 como uma extensão do NSGA original.
+
+O NSGA-II incorpora várias técnicas eficientes para manter um conjunto de soluções não dominadas ao longo das gerações, aproximando-se da fronteira de Pareto. Ele usa uma combinação de classificação não dominada, operadores genéticos (cruzamento e mutação) e seleção para criar uma nova população de soluções candidatas que evolui em direção a uma melhor aproximação do conjunto de Pareto.
 
 O programa está implementado na linguagem Python e utiliza as bibliotecas numpy e pymoo.
 
