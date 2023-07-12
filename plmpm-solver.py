@@ -1,9 +1,9 @@
 import sys
 
 from pymoo.algorithms.moo.nsga2 import NSGA2
-from pymoo.operators.crossover.sbx import SBX
-from pymoo.operators.mutation.pm import PM
-from pymoo.operators.sampling.rnd import FloatRandomSampling
+from pymoo.operators.crossover.pntx import TwoPointCrossover
+from pymoo.operators.mutation.bitflip import BitflipMutation
+from pymoo.operators.sampling.rnd import BinaryRandomSampling
 from pymoo.termination import get_termination
 from pymoo.optimize import minimize
 import matplotlib.pyplot as plt
