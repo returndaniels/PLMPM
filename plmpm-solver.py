@@ -76,8 +76,8 @@ def show_solution(solutions):
             for i in range(num_platforms)
             for k in range(num_capacities)
         ]
-        print(f"X(i,j){s}:\t{' '.join(list(filter(bool, w1)))}")
-        print(f"Y(i,k){s}:\t{' '.join(list(filter(bool, w2)))}")
+        print(f"S{s} - X(i,j):\t{' '.join(list(filter(bool, w1)))}")
+        print(f"S{s} - Y(i,k):\t{' '.join(list(filter(bool, w2)))}")
 
 
 if __name__ == "__main__":
