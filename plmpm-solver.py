@@ -36,17 +36,15 @@ def solve_plmpm():
     )
 
     algorithm = NSGA2(
-        pop_size=100,
+        pop_size=pop_size,
         n_offsprings=10,
-        sampling=FloatRandomSampling(),
-        crossover=SBX(prob=0.65, eta=15),
-        mutation=PM(
-            eta=1 / (num_platforms * num_wells + num_platforms * num_capacities)
-        ),
+        sampling=BinaryRandomSampling(),
+        crossover=TwoPointCrossover(prob=crossover_prob),
+        mutation=BitflipMutation(prob=mutation_prob),
         eliminate_duplicates=True,
     )
 
-    termination = get_termination("n_gen", 4000)
+    termination = get_termination("n_gen", n_gen)
     res = minimize(
         problem, algorithm, termination, seed=1, save_history=True, verbose=False
     )

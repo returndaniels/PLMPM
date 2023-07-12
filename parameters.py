@@ -89,3 +89,8 @@ DQ = [
 # custos com danos ambientais esperados, referentes à instalação e/ou funcionamento da plataforma i ∈ I com nível
 # de capacidade k ∈ K;
 DP = [[203684, 276239], [261388, 211061], [248587, 78777]]
+
+n_gen = 4000
+pop_size = 200
+crossover_prob = 0.65
+mutation_prob = 1 / (num_platforms * num_wells + num_platforms * num_capacities)
