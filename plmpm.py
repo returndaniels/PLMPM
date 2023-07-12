@@ -6,10 +6,11 @@ class PLMPM(ElementwiseProblem):
     def __init__(
         self, num_platforms, num_wells, num_capacities, c, f, a, b, DW, DQ, DO, DP
     ):
+        n_var = num_platforms * num_wells + num_platforms * num_capacities
         super().__init__(
-            n_var=num_platforms * num_wells + num_platforms * num_capacities,
+            n_var=n_var,
             n_obj=3,
-            n_constr=3 * num_platforms,
+            n_constr=num_wells + 2 * num_platforms,
             xl=np.zeros(36),
             xu=np.ones(36),
         )
@@ -75,10 +76,12 @@ class PLMPM(ElementwiseProblem):
             )
 
         constraints = []
-        for i in range(self.num_platforms):
-            # Soma dos elementos de cada linha deve ser igual a 1
-            g1 = sum([x_ij[i][j] for j in range(self.num_wells)]) - 1
+        for j in range(self.num_wells):
+            # Soma dos elementos de cada coluna deve ser igual a 1
+            g1 = sum([x_ij[i][j] for i in range(self.num_platforms)]) - 1
+            constraints.append(g1)
 
+        for i in range(self.num_platforms):
             # Soma dos elementos de cada linha deve ser igual a 1
             g2 = sum([y_ik[i][k] for k in range(self.num_capacities)]) - 1
 
@@ -87,7 +90,6 @@ class PLMPM(ElementwiseProblem):
             sum_b = sum([self.b[k] * y_ik[i][k] for k in range(self.num_capacities)])
             g3 = sum_a - sum_b
 
-            constraints.append(g1)
             constraints.append(g2)
             constraints.append(g3)
 
